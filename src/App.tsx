@@ -8,37 +8,47 @@ import { Good } from './types/Good';
 export const App: React.FC = () => {
   const [goods, setGoods] = useState<Good[]>([]);
 
+  const handleGetAll = () => {
+    getAll()
+      .then(setGoods)
+      .catch(() => {
+        throw new Error('Failed to load goods');
+      });
+  };
+
+  const handleGet5First = () => {
+    get5First()
+      .then(setGoods)
+      .catch(() => {
+        throw new Error('Failed to load goods');
+      });
+  };
+
+  const handleGetRedGoods = () => {
+    getRedGoods()
+      .then(setGoods)
+      .catch(() => {
+        throw new Error('Failed to load goods');
+      });
+  };
+
   return (
     <div className="App">
       <h1>Dynamic list of Goods</h1>
 
-      <button
-        onClick={() => {
-          getAll().then(setGoods);
-        }}
-        type="button"
-        data-cy="all-button"
-      >
+      <button onClick={handleGetAll} type="button" data-cy="all-button">
         Load all goods
       </button>
 
       <button
-        onClick={() => {
-          get5First().then(setGoods);
-        }}
+        onClick={handleGet5First}
         type="button"
         data-cy="first-five-button"
       >
         Load 5 first goods
       </button>
 
-      <button
-        onClick={() => {
-          getRedGoods().then(setGoods);
-        }}
-        type="button"
-        data-cy="red-button"
-      >
+      <button onClick={handleGetRedGoods} type="button" data-cy="red-button">
         Load red goods
       </button>
 
