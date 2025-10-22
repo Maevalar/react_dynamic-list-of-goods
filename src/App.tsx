@@ -12,7 +12,8 @@ export const App: React.FC = () => {
     getAll()
       .then(setGoods)
       .catch(() => {
-        throw new Error('Failed to load goods');
+        // eslint-disable-next-line no-console
+        console.error('Failed to load goods');
       });
   };
 
@@ -20,7 +21,8 @@ export const App: React.FC = () => {
     get5First()
       .then(setGoods)
       .catch(() => {
-        throw new Error('Failed to load goods');
+        // eslint-disable-next-line no-console
+        console.error('Failed to load goods');
       });
   };
 
@@ -28,7 +30,8 @@ export const App: React.FC = () => {
     getRedGoods()
       .then(setGoods)
       .catch(() => {
-        throw new Error('Failed to load goods');
+        // eslint-disable-next-line no-console
+        console.error('Failed to load goods');
       });
   };
 
